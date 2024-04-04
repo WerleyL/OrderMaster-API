@@ -1,9 +1,9 @@
-package services;
+package com.example.course.services;
 
-import entities.User;
+import com.example.course.entities.User;
+import com.example.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
