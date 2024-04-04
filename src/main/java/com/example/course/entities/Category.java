@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name ="tb_category")
 public class Category implements Serializable {
@@ -14,6 +17,8 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
+    @Transient
+    private Set<Product> product = new HashSet<>();
 
     public Category() {
     }
@@ -38,6 +43,10 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    public Set<Product> getProduct() {
+        return product;
+
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -51,4 +60,8 @@ public class Category implements Serializable {
     public int hashCode() {
         return Objects.hash(ID);
     }
+
+
+
+
 }
